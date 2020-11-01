@@ -9,7 +9,13 @@
     <button (click)="stop()">Stop</button>
 </div>
 
-<p>History:</p>
+<div class="header">
+    <h3>History:</h3> 
+    <div>
+        <button class="save-button" (click)="save()">Save</button>
+    </div>
+</div>
+
 <div class="history-item" *ngFor='let item of historyItems'>
     <label class="title">
         Title:

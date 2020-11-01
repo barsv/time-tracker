@@ -15,7 +15,19 @@
     }
 
     .duration {
-        
+        margin-right: 16px;
     }
 }
 
+
+.header{
+    display: flex;
+    h3 {
+        flex-grow:1;
+    }
+}
+
+.save-button {
+    margin-top: 16px;
+    margin-right: 16px;
+}

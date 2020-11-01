@@ -10,7 +10,7 @@ import { HistoryService } from '../history.service';
 })
 export class HistoryComponent implements OnInit {
 
-  constructor(private historyService: HistoryService) { }
+  constructor(private _historyService: HistoryService) { }
 
   historyItems: HistoryItem[];
 
@@ -19,12 +19,12 @@ export class HistoryComponent implements OnInit {
   };
 
   delete(historyItem: HistoryItem): void {
-    this.historyService.delete(historyItem);
+    this._historyService.delete(historyItem);
   }
 
   stop(): void {
     this.pause();
-    this.historyService.add(this.currentItem);
+    this._historyService.add(this.currentItem);
     this.currentItem = <HistoryItem>{
       id: 3, title: '', duration: 0
     };
@@ -56,8 +56,12 @@ export class HistoryComponent implements OnInit {
     this.currentItem = historyItem;
   }
 
+  save(): void {
+    this._historyService.save();
+  }
+
   ngOnInit(): void {
-    this.historyService.getHistoryItems()
+    this._historyService.getHistoryItems()
       .subscribe(historyItems => this.historyItems = historyItems);
   }
 

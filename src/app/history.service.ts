@@ -24,11 +24,15 @@ export class HistoryService {
   delete(historyItem: HistoryItem): void {
     var index = this._historyItems.indexOf(historyItem);
     this._historyItems.splice(index, 1);
-    localStorage.setItem('_historyItems', JSON.stringify(this._historyItems));
+    this.save();
   }
 
   add(historyItem): void {
     this._historyItems.unshift(historyItem);
+    this.save();
+  }
+
+  save(): void{
     localStorage.setItem('_historyItems', JSON.stringify(this._historyItems));
   }
 
