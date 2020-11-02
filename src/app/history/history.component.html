@@ -14,8 +14,8 @@
     </div>
 </div>
 
-<div class="history-item form-group" *ngFor='let item of historyItems'>
-    <input [(ngModel)]="item.title" placeholder="Title" class="form-control"/>
+<div class="history-item form-group" *ngFor='let item of historyItems' [hidden]="item.id == currentItem.id">
+    <input [(ngModel)]="item.title" placeholder="Title" class="form-control" />
     <span class="duration">{{item.durationString}}</span>
     <button (click)="restart(item)" class="btn btn-secondary">Restart</button>
     <button (click)="delete(item)" class="btn btn-secondary">Delete</button>
