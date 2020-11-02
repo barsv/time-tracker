@@ -10,13 +10,13 @@ import { HistoryService } from '../history.service';
 })
 export class HistoryComponent implements OnInit {
 
-  constructor(private _historyService: HistoryService) { }
+  constructor(private _historyService: HistoryService) { 
+    this.currentItem = this._createNewItem();
+  }
 
   historyItems: HistoryItem[];
 
-  currentItem: HistoryItem = <HistoryItem> {
-    id: 3, title: '', duration: 0
-  };
+  currentItem: HistoryItem;
 
   delete(historyItem: HistoryItem): void {
     this._historyService.delete(historyItem);
@@ -24,10 +24,16 @@ export class HistoryComponent implements OnInit {
 
   stop(): void {
     this.pause();
-    this._historyService.add(this.currentItem);
-    this.currentItem = <HistoryItem>{
-      id: 3, title: '', duration: 0
-    };
+    if (this.currentItem.id == 0){
+      this._historyService.add(this.currentItem);
+    }
+    this.currentItem = this._createNewItem();
+  }
+
+  private _createNewItem(): HistoryItem {
+    return new HistoryItem({
+      id: 0, title: '', duration: 0
+    });
   }
 
   currentTimer: Subscription;
@@ -38,6 +44,13 @@ export class HistoryComponent implements OnInit {
     }
     this.isRunning = true;
     this.currentTimer = timer(0, 1000).subscribe(_ => {
+      if (this.currentItem.duration == NaN){
+        let time = this.currentItem.durationString.split(':');
+        let hours = +time[0];
+        let min = +time[1];
+        let sec = +time[2];
+        this.currentItem.duration = hours*60*60+min*60+sec;
+      }
       this.currentItem.duration++;
     });
   }
@@ -48,12 +61,17 @@ export class HistoryComponent implements OnInit {
   }
 
   restart(historyItem: HistoryItem): void {
-    this.delete(historyItem);
-    if (this.currentItem.duration > 0){
+    // stop the current task if running
+    if (this.isRunning){
       this.stop();
     }
-    this.start();
+    // reposition the selected item to the top
+    this._historyService.delete(historyItem);
+    this._historyService.add(historyItem);
+    // make the selected item to be the current item
     this.currentItem = historyItem;
+    // start the current task
+    this.start();
   }
 
   save(): void {

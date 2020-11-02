@@ -1,6 +1,7 @@
 .history-item {
-    border: 1px solid gray;
-    margin: 8px;
+    border: 1px solid lightgray;
+    margin-top: 8px;
+    margin-bottom: 8px;
     padding: 16px;
     display: flex;
 
@@ -15,7 +16,13 @@
     }
 
     .duration {
-        margin-right: 16px;
+        margin-right: 8px;
+        margin-left: 16px;
+        margin-top: 8px;
+    }
+
+    button {
+        margin-left: 8px;
     }
 }
 
@@ -28,6 +35,5 @@
 }
 
 .save-button {
-    margin-top: 16px;
-    margin-right: 16px;
+    margin-right: 18px;
 }
