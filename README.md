@@ -15,6 +15,7 @@ Instead of creating the useless Heroes app I decided to implement this time trac
 - tags
 - favorites
 - sessions (show details about that the task was started and stopped several times)
+- create about page and show it on the first page load 
 - replace localStorage with indexedDB
 - export to csv
 - settings page with compact view

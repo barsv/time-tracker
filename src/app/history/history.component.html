@@ -7,16 +7,18 @@
     <button (click)="stop()" class="btn btn-secondary">Stop</button>
 </div>
 
-<div class="header">
-    <h3>History:</h3> 
-    <div>
-        <button class="save-button btn btn-secondary" (click)="save()">Save</button>
+<div [hidden]="!historyItems || historyItems.length == 0">
+    <div class="header">
+        <h3>History:</h3> 
+        <div>
+            <button class="save-button btn btn-secondary" (click)="save()">Save</button>
+        </div>
     </div>
-</div>
 
-<div class="history-item form-group" *ngFor='let item of historyItems' [hidden]="item.id == currentItem.id">
-    <input [(ngModel)]="item.title" placeholder="Title" class="form-control" />
-    <span class="duration">{{item.durationString}}</span>
-    <button (click)="restart(item)" class="btn btn-secondary">Restart</button>
-    <button (click)="delete(item)" class="btn btn-secondary">Delete</button>
+    <div class="history-item form-group" *ngFor='let item of historyItems' [hidden]="item.id == currentItem.id">
+        <input [(ngModel)]="item.title" placeholder="Title" class="form-control" />
+        <span class="duration">{{item.durationString}}</span>
+        <button (click)="restart(item)" class="btn btn-secondary">Restart</button>
+        <button (click)="delete(item)" class="btn btn-secondary">Delete</button>
+    </div>
 </div>
