@@ -1,1 +1,18 @@
 @import url('https://unpkg.com/bootstrap@4.5.3/dist/css/bootstrap.min.css');
+
+// dark theme cut and pasted from darkreader
+@media (prefers-color-scheme: dark) {
+    body {
+        color: rgb(146, 144, 139);
+        background-color: rgb(17, 18, 19); 
+    }
+    .form-control {
+        color: rgb(127, 122, 116);
+        background-color: rgb(17, 18, 19);
+        border-color: rgb(42, 45, 48);
+    }
+    .form-control:focus {
+        color: rgb(127, 122, 116);
+        background-color: rgb(17, 18, 19);
+    }
+}
