@@ -1,6 +1,8 @@
-# Atest
+# time-tracker
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.2.0.
+Time tracker progressive web application. It works offline.
+I implemented it as a test project while I was reading Angular tutorial https://angular.io/tutorial. 
+Instead of creating useless Heroes app I decided to implement this time tracker.
 
 ## Development server
 

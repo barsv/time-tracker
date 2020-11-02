@@ -1,6 +1,6 @@
 {
-  "name": "atest",
-  "short_name": "atest",
+  "name": "time-tracker",
+  "short_name": "time-tracker",
   "theme_color": "#1976d2",
   "background_color": "#fafafa",
   "display": "standalone",
