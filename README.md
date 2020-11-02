@@ -1,12 +1,12 @@
-# time-tracker
+# Time-tracker
 
 This time tracker is a progressive web application that works offline. The purpose of the app is to track how much time is spent on different tasks.
 I implemented it as a test project while I was reading Angular tutorial https://angular.io/tutorial. 
 Instead of creating useless Heroes app I decided to implement this time tracker.
 
-# Todo:
+## Todo:
 
-## nearest:
+### nearest:
 - publish
 - add grouping by days
 - add total time for today
@@ -20,7 +20,7 @@ Instead of creating useless Heroes app I decided to implement this time tracker.
 - settings page with compact view
 - add option to select several items and show total time
 
-## questionable:
+### questionable:
 - idle task
 - bigger buttons for mobile
 - speech to text/voice commands
