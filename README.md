@@ -1,29 +1,26 @@
 # time-tracker
 
-Time tracker progressive web application. It works offline.
+This time tracker is a progressive web application that works offline. The purpose of the app is to track how much time is spent on different tasks.
 I implemented it as a test project while I was reading Angular tutorial https://angular.io/tutorial. 
 Instead of creating useless Heroes app I decided to implement this time tracker.
 
-## Development server
+Todo:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+nearest:
+- publish
+- add grouping by days
+- add total time for today
+- auto-save
+- search
+- tags
+- favorites
+- sessions (show details about that the task was started and stopped several times)
+- replace localStorage with indexedDB
+- export to csv
+- settings page with compact view
+- add option to select several items and show total time
+questionable:
+- idle task
+- bigger buttons for mobile
+- speech to text/voice commands
 
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
