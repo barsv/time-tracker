@@ -2,7 +2,7 @@
 
 This time tracker is a progressive web application that works offline. The purpose of the app is to track how much time is spent on different tasks.
 I implemented it as a test project while I was reading Angular tutorial https://angular.io/tutorial. 
-Instead of creating useless Heroes app I decided to implement this time tracker.
+Instead of creating the useless Heroes app I decided to implement this time tracker.
 
 ## Todo:
 
