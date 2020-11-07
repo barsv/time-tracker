@@ -52,9 +52,7 @@ export class HistoryComponent implements OnInit {
       return;
     }
     this.isRunning = true;
-    this.currentTimer = timer(0, 1000).subscribe(_ => {
-      this.currentItem.duration++;
-    });
+    this._startTimer();
   }
 
   blur(){
@@ -75,8 +73,31 @@ export class HistoryComponent implements OnInit {
     this.start();
   }
 
+  pause(): void {
+    if (this.isRunning){
+      this.currentTimer.unsubscribe();
+    }
+  }
+
+  private _startTimer():void{
+    this.currentTimer = timer(0, 1000).subscribe(_ => {
+      this.currentItem.duration++;
+    });
+  }
+
+  continue(): void {
+    if (this.isRunning){
+      this._startTimer();
+    }
+  }
+
   setDuration(historyItem: HistoryItem, value: string): void {
     historyItem.durationString = value;
+  }
+
+  setCurrentDuration(historyItem: HistoryItem, value: string): void {
+    historyItem.durationString = value;
+    this.continue();
   }
 
   save(): void {

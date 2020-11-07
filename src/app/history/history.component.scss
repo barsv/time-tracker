@@ -6,17 +6,24 @@
     display: flex;
 
     input {
-        margin-left: 16px;
-        margin-right: 16px;
-        border: 0;
+        margin-left: 8px;
+        margin-right: 8px;
+        border: 0 solid rgb(206, 212, 218);
         border-bottom: 1px solid rgb(206, 212, 218);
+        outline: none;
     }
     input:hover{
         border: 1px solid rgb(206, 212, 218);
     }
+    input:focus {
+        border: 1px solid rgb(206, 212, 218);
+        box-shadow: none;
+    }
 
     .duration {
         text-align: center;
+        padding-left: 8px;
+        padding-right: 8px;
     }
     .duration:focus {
         width: 140px;
@@ -27,7 +34,6 @@
         margin-left: 8px;
     }
 }
-
 
 .header{
     display: flex;

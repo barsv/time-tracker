@@ -13,9 +13,9 @@ export class HistoryItem {
         this.isHours = newValue >= 60 * 60 && newValue < 24 * 60 * 60;
         this.isDays = newValue >= 24 * 60 * 60;
         let secs = (newValue % 60).toFixed(0).toString().padStart(2, '0');
-        let mins = (newValue / 60 % 60).toFixed(0).toString().padStart(2, '0');
-        let hours = (newValue / (60 * 60) % 24).toFixed(0).toString().padStart(2, '0');
-        let days = (newValue / (24 * 60 * 60)).toFixed(0).toString();
+        let mins = (Math.floor(newValue / 60 % 60)).toFixed(0).toString().padStart(2, '0');
+        let hours = (Math.floor(newValue / (60 * 60)) % 24).toFixed(0).toString().padStart(2, '0');
+        let days = (Math.floor(newValue / (24 * 60 * 60))).toFixed(0).toString();
         this._durationString = this.isDays ? `${days}:${hours}:${mins}:${secs}`
             : this.isHours ? `${hours}:${mins}:${secs}`
                 : `${mins}:${secs}`;
