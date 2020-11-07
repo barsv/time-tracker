@@ -1,23 +1,19 @@
-<h3>Current Task: </h3>
 <div class="history-item">
-    <input [(ngModel)]="currentItem.title" placeholder="Title" class="form-control" />
-    <span class="duration">{{currentItem.durationString}}</span>
-    <button (click)="start()" class="btn btn-secondary">Start</button>
-    <button (click)="pause()" class="btn btn-secondary">Pause</button>
-    <button (click)="stop()" class="btn btn-secondary">Stop</button>
+    <input [(ngModel)]="currentItem.description" placeholder="Description" class="form-control" />
+    <!-- <span class="duration">{{currentItem.durationString}}</span> -->
+    <input [ngModel]="currentItem.durationString" placeholder="00:00:00" class="duration"
+        (blur)="setDuration(currentItem, $event.target.value)" 
+        [size]="currentItem.durationString.length - 4" />
+    <button (click)="startStop()" class="btn btn-secondary">{{isRunning ? 'Stop' : 'Start'}}</button>
 </div>
 
 <div [hidden]="!historyItems || historyItems.length == 0">
-    <div class="header">
-        <h3>History:</h3> 
-        <div>
-            <button class="save-button btn btn-secondary" (click)="save()">Save</button>
-        </div>
-    </div>
-
     <div class="history-item form-group" *ngFor='let item of historyItems' [hidden]="item.id == currentItem.id">
-        <input [(ngModel)]="item.title" placeholder="Title" class="form-control" />
-        <span class="duration">{{item.durationString}}</span>
+        <input [(ngModel)]="item.description" placeholder="Description" class="form-control" (blur)="blur()"/>
+        <input placeholder="00:00:00" class="duration" 
+            value="{{item.durationString}}"
+            (input)="setDuration(item, $event.target.value)" 
+            [size]="item.durationString.length - 4" />
         <button (click)="restart(item)" class="btn btn-secondary">Restart</button>
         <button (click)="delete(item)" class="btn btn-secondary">Delete</button>
     </div>

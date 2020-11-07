@@ -23,16 +23,25 @@ export class HistoryComponent implements OnInit {
   }
 
   stop(): void {
-    this.pause();
+    this.isRunning = false;
+    this.currentTimer.unsubscribe();
     if (this.currentItem.id == 0){
       this._historyService.add(this.currentItem);
     }
     this.currentItem = this._createNewItem();
   }
 
+  startStop(): void {
+    if (this.isRunning){
+      this.stop();
+    } else {
+      this.start();
+    }
+  }
+
   private _createNewItem(): HistoryItem {
     return new HistoryItem({
-      id: 0, title: '', duration: 0
+      id: 0, description: '', duration: 0
     });
   }
 
@@ -44,20 +53,12 @@ export class HistoryComponent implements OnInit {
     }
     this.isRunning = true;
     this.currentTimer = timer(0, 1000).subscribe(_ => {
-      if (this.currentItem.duration == NaN){
-        let time = this.currentItem.durationString.split(':');
-        let hours = +time[0];
-        let min = +time[1];
-        let sec = +time[2];
-        this.currentItem.duration = hours*60*60+min*60+sec;
-      }
       this.currentItem.duration++;
     });
   }
 
-  pause(): void {
-    this.isRunning = false;
-    this.currentTimer.unsubscribe();
+  blur(){
+    this.save();
   }
 
   restart(historyItem: HistoryItem): void {
@@ -72,6 +73,10 @@ export class HistoryComponent implements OnInit {
     this.currentItem = historyItem;
     // start the current task
     this.start();
+  }
+
+  setDuration(historyItem: HistoryItem, value: string): void {
+    historyItem.durationString = value;
   }
 
   save(): void {

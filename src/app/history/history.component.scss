@@ -5,20 +5,22 @@
     padding: 16px;
     display: flex;
 
-    .title{
-        flex-grow: 1;
-        display: flex;
-        input {
-            flex-grow: 1;
-            margin-left: 16px;
-            margin-right: 16px;
-        }
+    input {
+        margin-left: 16px;
+        margin-right: 16px;
+        border: 0;
+        border-bottom: 1px solid rgb(206, 212, 218);
+    }
+    input:hover{
+        border: 1px solid rgb(206, 212, 218);
     }
 
     .duration {
-        margin-right: 8px;
-        margin-left: 16px;
-        margin-top: 8px;
+        text-align: center;
+    }
+    .duration:focus {
+        width: 140px;
+        text-align: right;
     }
 
     button {
