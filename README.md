@@ -10,7 +10,6 @@ Instead of creating the useless Heroes app I decided to implement this time trac
 ### nearest:
 - add grouping by days
 - add total time for today
-- auto-save
 - search
 - tags
 - favorites
@@ -21,6 +20,7 @@ Instead of creating the useless Heroes app I decided to implement this time trac
 - export to csv
 - settings page with compact view
 - add option to select several items and show total time
+- workspaces
 
 ### questionable:
 - idle task

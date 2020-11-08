@@ -59,6 +59,12 @@ export class HistoryComponent implements OnInit {
     this.save();
   }
 
+  blurOnEnter(e){
+    if (e.key == "Enter"){
+      e.target.blur();
+    }
+  }
+
   restart(historyItem: HistoryItem): void {
     // stop the current task if running
     if (this.isRunning){

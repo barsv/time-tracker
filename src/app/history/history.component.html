@@ -1,19 +1,23 @@
 <div class="history-item">
-    <input [(ngModel)]="currentItem.description" placeholder="Description" class="form-control" />
+    <input [(ngModel)]="currentItem.description" placeholder="Description" class="form-control" 
+        (keyup)="blurOnEnter($event)"/>
     <input [ngModel]="currentItem.durationString" placeholder="00:00:00" class="duration"
         (blur)="setCurrentDuration(currentItem, $event.target.value)" 
         (focus)="pause()"
-        [size]="currentItem.durationString.length - 4" />
+        [size]="currentItem.durationString.length - 4" 
+        (keyup)="blurOnEnter($event)"/>
     <button (click)="startStop()" class="btn btn-secondary">{{isRunning ? 'Stop' : 'Start'}}</button>
 </div>
 
 <div [hidden]="!historyItems || historyItems.length == 0">
     <div class="history-item form-group" *ngFor='let item of historyItems' [hidden]="item.id == currentItem.id">
-        <input [(ngModel)]="item.description" placeholder="Description" class="form-control" (blur)="blur()"/>
+        <input [(ngModel)]="item.description" placeholder="Description" class="form-control" (blur)="blur()"
+            (keyup)="blurOnEnter($event)"/>
         <input placeholder="00:00:00" class="duration" 
             [ngModel]="item.durationString"
             (blur)="setDuration(item, $event.target.value)" 
-            [size]="item.durationString.length - 4" />
+            [size]="item.durationString.length - 4" 
+            (keyup)="blurOnEnter($event)"/>
         <button (click)="restart(item)" class="btn btn-secondary">Restart</button>
         <button (click)="delete(item)" class="btn btn-secondary">Delete</button>
     </div>
