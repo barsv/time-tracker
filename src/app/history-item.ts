@@ -1,9 +1,17 @@
+import { Utils } from './utils'
+
 export class HistoryItem {
     constructor(init?:Partial<HistoryItem>){
         Object.assign(this, init);
+        if (this.day == undefined){
+            this.date = new Date();
+            this.day = Utils.dateToString(this.date);
+        }
     }
     id: number;
     description: string;
+    date: Date;
+    day: string;
     isHours: boolean;
     isDays: boolean;
     // in seconds
